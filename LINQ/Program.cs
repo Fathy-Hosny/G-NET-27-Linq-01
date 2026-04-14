@@ -66,16 +66,27 @@ namespace LINQ
 
 			#region Q6
 
-			var productStatuses = Source.ProductList.Select(p => new
-			{
-				Name = p.ProductName,
-				Price = p.UnitPrice,
-				StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock"
-			});
+			//var productStatuses = Source.ProductList.Select(p => new
+			//{
+			//	Name = p.ProductName,
+			//	Price = p.UnitPrice,
+			//	StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock"
+			//});
 
-			foreach (var item in productStatuses)
+			//foreach (var item in productStatuses)
+			//{
+			//	Console.WriteLine($"Name: {item.Name}, Price: {item.Price}, Status: {item.StockStatus}");
+			//}
+
+			#endregion
+
+			#region Q7
+
+			var productsWithIndex = Source.ProductList.Select((p, index) => new { Index = index + 1, Name = p.ProductName });
+
+			foreach (var item in productsWithIndex)
 			{
-				Console.WriteLine($"Name: {item.Name}, Price: {item.Price}, Status: {item.StockStatus}");
+				Console.WriteLine($"{item.Index}. {item.Name}");
 			}
 
 			#endregion
