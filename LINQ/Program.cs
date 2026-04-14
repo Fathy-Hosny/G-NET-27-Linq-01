@@ -82,11 +82,22 @@ namespace LINQ
 
 			#region Q7
 
-			var productsWithIndex = Source.ProductList.Select((p, index) => new { Index = index + 1, Name = p.ProductName });
+			//var productsWithIndex = Source.ProductList.Select((p, index) => new { Index = index + 1, Name = p.ProductName });
 
-			foreach (var item in productsWithIndex)
-			{
-				Console.WriteLine($"{item.Index}. {item.Name}");
+			//foreach (var item in productsWithIndex)
+			//{
+			//	Console.WriteLine($"{item.Index}. {item.Name}");
+			//}
+
+			#endregion
+
+			#region Q8
+
+			var multiSortedProducts = Source.ProductList.OrderBy(p => p.Category)
+									 .ThenByDescending(p => p.UnitPrice);
+
+			foreach (var p in multiSortedProducts) { 
+				Console.WriteLine($"Name: {p.ProductName}, Category: {p.Category}, Price: {p.UnitPrice:c}");
 			}
 
 			#endregion
