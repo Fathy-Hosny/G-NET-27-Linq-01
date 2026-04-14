@@ -18,14 +18,24 @@ namespace LINQ
 
 			#endregion
 
-
 			#region Q2
 
-			var productNames = Source.ProductList.Select(p => p.ProductName);
+			//var productNames = Source.ProductList.Select(p => p.ProductName);
 
-			foreach (var name in productNames)
+			//foreach (var name in productNames)
+			//{
+			//	Console.WriteLine($"Name: {name}");
+			//}
+
+			#endregion
+
+			#region Q3
+
+			var sortedProducts = Source.ProductList.OrderBy(p => p.UnitPrice);
+
+			foreach (var p in sortedProducts)
 			{
-				Console.WriteLine($"Name: {name}");
+				Console.WriteLine($"Name: {p.ProductName}, Price: {p.UnitPrice:c}");
 			}
 
 			#endregion
