@@ -115,18 +115,29 @@ namespace LINQ
 			#endregion
 
 			#region Q10
-			var orders97 = from c in Source.CustomerList
-						   from o in c.Orders 
-						   where o.OrderDate.Year >= 1997
-						   select new { c.CustomerID, o.OrderDate };
 
-			foreach (var o in orders97)
+			//var orders97 = from c in Source.CustomerList
+			//			   from o in c.Orders 
+			//			   where o.OrderDate.Year >= 1997
+			//			   select new { c.CustomerID, o.OrderDate };
+
+			//foreach (var o in orders97)
+			//{
+
+			//	Console.WriteLine( o.CustomerID);	
+
+			//	Console.WriteLine( o.OrderDate.ToShortDateString());
+			//}
+
+			#endregion
+
+			#region Q11
+
+			var productListWithPos = Source.ProductList.Select((p, i) => $"{i + 1}. {p.ProductName}");
+
+			foreach (var item in productListWithPos)
 			{
-
-				Console.WriteLine( o.CustomerID);	
-
-				Console.WriteLine( o.OrderDate.ToShortDateString());
-
+				Console.WriteLine(item);
 			}
 
 			#endregion
