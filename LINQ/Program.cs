@@ -40,6 +40,19 @@ namespace LINQ
 
 			#endregion
 
+			#region Q4
+
+			var midRangeProducts = Source.ProductList.Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
+
+			foreach (var p in midRangeProducts)
+			{
+				
+				Console.WriteLine($"Name: {p.ProductName}, Price: {p.UnitPrice:c}");
+
+			}
+
+			#endregion
+
 
 		}
 	}
