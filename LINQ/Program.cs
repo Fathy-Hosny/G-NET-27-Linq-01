@@ -9,11 +9,23 @@ namespace LINQ
 		{
 			#region Q1
 
-			var seafoodProducts = Source.ProductList.Where(p => p.Category == "Seafood");
+			//var seafoodProducts = Source.ProductList.Where(p => p.Category == "Seafood");
 
-			foreach (var product in seafoodProducts)
+			//foreach (var product in seafoodProducts)
+			//{
+			//	Console.WriteLine($"Name: {product.ProductName}, Price: {product.UnitPrice:c}");
+			//}
+
+			#endregion
+
+
+			#region Q2
+
+			var productNames = Source.ProductList.Select(p => p.ProductName);
+
+			foreach (var name in productNames)
 			{
-				Console.WriteLine($"Name: {product.ProductName}, Price: {product.UnitPrice:c}");
+				Console.WriteLine($"Name: {name}");
 			}
 
 			#endregion
