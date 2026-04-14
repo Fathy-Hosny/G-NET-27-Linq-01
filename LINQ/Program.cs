@@ -93,23 +93,40 @@ namespace LINQ
 
 			#region Q8
 
-			var multiSortedProducts = Source.ProductList.OrderBy(p => p.Category)
-									 .ThenByDescending(p => p.UnitPrice);
+			//var multiSortedProducts = Source.ProductList.OrderBy(p => p.Category)
+			//						 .ThenByDescending(p => p.UnitPrice);
 
-			foreach (var p in multiSortedProducts) { 
-				Console.WriteLine($"Name: {p.ProductName}, Category: {p.Category}, Price: {p.UnitPrice:c}");
-			}
+			//foreach (var p in multiSortedProducts) { 
+			//	Console.WriteLine($"Name: {p.ProductName}, Category: {p.Category}, Price: {p.UnitPrice:c}");
+			//}
 
 			#endregion
 
 			#region Q9
 
-			var beverages = Source.ProductList.Where(p => p.Category == "Beverages")
-						   .OrderByDescending(p => p.UnitsInStock);
+			//var beverages = Source.ProductList.Where(p => p.Category == "Beverages")
+			//			   .OrderByDescending(p => p.UnitsInStock);
 
-			foreach (var b in beverages)
+			//foreach (var b in beverages)
+			//{
+			//	Console.WriteLine($"Name: {b.ProductName}, Stock: {b.UnitsInStock}");
+			//}
+
+			#endregion
+
+			#region Q10
+			var orders97 = from c in Source.CustomerList
+						   from o in c.Orders 
+						   where o.OrderDate.Year >= 1997
+						   select new { c.CustomerID, o.OrderDate };
+
+			foreach (var o in orders97)
 			{
-				Console.WriteLine($"Name: {b.ProductName}, Stock: {b.UnitsInStock}");
+
+				Console.WriteLine( o.CustomerID);	
+
+				Console.WriteLine( o.OrderDate.ToShortDateString());
+
 			}
 
 			#endregion
