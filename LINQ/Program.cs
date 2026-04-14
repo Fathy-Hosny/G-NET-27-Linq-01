@@ -102,6 +102,18 @@ namespace LINQ
 
 			#endregion
 
+			#region Q9
+
+			var beverages = Source.ProductList.Where(p => p.Category == "Beverages")
+						   .OrderByDescending(p => p.UnitsInStock);
+
+			foreach (var b in beverages)
+			{
+				Console.WriteLine($"Name: {b.ProductName}, Stock: {b.UnitsInStock}");
+			}
+
+			#endregion
+
 
 		}
 	}
