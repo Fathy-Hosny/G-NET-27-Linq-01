@@ -46,7 +46,7 @@ namespace LINQ
 
 			//foreach (var p in midRangeProducts)
 			//{
-				
+
 			//	Console.WriteLine($"Name: {p.ProductName}, Price: {p.UnitPrice:c}");
 
 			//}
@@ -55,11 +55,27 @@ namespace LINQ
 
 			#region Q5
 
-			var availableCondiments = Source.ProductList.Where(p => p.UnitsInStock > 0 && p.Category == "Condiments");
+			//var availableCondiments = Source.ProductList.Where(p => p.UnitsInStock > 0 && p.Category == "Condiments");
 
-			foreach (var p in availableCondiments)
+			//foreach (var p in availableCondiments)
+			//{
+			//	Console.WriteLine($"Name: {p.ProductName} Stock: {p.UnitsInStock}");
+			//}
+
+			#endregion
+
+			#region Q6
+
+			var productStatuses = Source.ProductList.Select(p => new
 			{
-				Console.WriteLine($"Name: {p.ProductName} Stock: {p.UnitsInStock}");
+				Name = p.ProductName,
+				Price = p.UnitPrice,
+				StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock"
+			});
+
+			foreach (var item in productStatuses)
+			{
+				Console.WriteLine($"Name: {item.Name}, Price: {item.Price}, Status: {item.StockStatus}");
 			}
 
 			#endregion
