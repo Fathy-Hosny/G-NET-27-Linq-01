@@ -31,24 +31,35 @@ namespace LINQ
 
 			#region Q3
 
-			var sortedProducts = Source.ProductList.OrderBy(p => p.UnitPrice);
+			//var sortedProducts = Source.ProductList.OrderBy(p => p.UnitPrice);
 
-			foreach (var p in sortedProducts)
-			{
-				Console.WriteLine($"Name: {p.ProductName}, Price: {p.UnitPrice:c}");
-			}
+			//foreach (var p in sortedProducts)
+			//{
+			//	Console.WriteLine($"Name: {p.ProductName}, Price: {p.UnitPrice:c}");
+			//}
 
 			#endregion
 
 			#region Q4
 
-			var midRangeProducts = Source.ProductList.Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
+			//var midRangeProducts = Source.ProductList.Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
 
-			foreach (var p in midRangeProducts)
-			{
+			//foreach (var p in midRangeProducts)
+			//{
 				
-				Console.WriteLine($"Name: {p.ProductName}, Price: {p.UnitPrice:c}");
+			//	Console.WriteLine($"Name: {p.ProductName}, Price: {p.UnitPrice:c}");
 
+			//}
+
+			#endregion
+
+			#region Q5
+
+			var availableCondiments = Source.ProductList.Where(p => p.UnitsInStock > 0 && p.Category == "Condiments");
+
+			foreach (var p in availableCondiments)
+			{
+				Console.WriteLine($"Name: {p.ProductName} Stock: {p.UnitsInStock}");
 			}
 
 			#endregion
