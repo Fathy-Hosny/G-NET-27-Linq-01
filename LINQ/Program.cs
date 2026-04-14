@@ -144,14 +144,30 @@ namespace LINQ
 
 			#region Q12
 
-			String[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+			//String[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
-			var sortedWords = Arr.OrderBy(w => w.Length)
-								 .ThenBy(w => w, StringComparer.OrdinalIgnoreCase);
+			//var sortedWords = Arr.OrderBy(w => w.Length)
+			//					 .ThenBy(w => w, StringComparer.OrdinalIgnoreCase);
 
-			foreach (var word in sortedWords)
+			//foreach (var word in sortedWords)
+			//{
+			//	Console.WriteLine(word);
+			//}
+
+			#endregion
+
+			#region Q13
+
+			string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+			var resultList = digits.Where(d => d.Length > 1 && d[1] == 'i')
+								   .Reverse()
+								   .ToList();
+
+			foreach (var digit in resultList)
 			{
-				Console.WriteLine(word);
+				Console.WriteLine(digit);
+
 			}
 
 			#endregion
