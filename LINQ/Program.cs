@@ -133,11 +133,25 @@ namespace LINQ
 
 			#region Q11
 
-			var productListWithPos = Source.ProductList.Select((p, i) => $"{i + 1}. {p.ProductName}");
+			//var productListWithPos = Source.ProductList.Select((p, i) => $"{i + 1}. {p.ProductName}");
 
-			foreach (var item in productListWithPos)
+			//foreach (var item in productListWithPos)
+			//{
+			//	Console.WriteLine(item);
+			//}
+
+			#endregion
+
+			#region Q12
+
+			String[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+
+			var sortedWords = Arr.OrderBy(w => w.Length)
+								 .ThenBy(w => w, StringComparer.OrdinalIgnoreCase);
+
+			foreach (var word in sortedWords)
 			{
-				Console.WriteLine(item);
+				Console.WriteLine(word);
 			}
 
 			#endregion
